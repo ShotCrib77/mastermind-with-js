@@ -148,7 +148,7 @@ async function codeGuessST() { // Simplified Typing
   // Gets the user's guess with one-letter abbreviations
   return new Promise((resolve) => {
     rl.question("Enter your guess, using one-letter abbreviations (e.g., 'R G B Y O P'): ", (userGuess) => {
-      let guess = userGuess.split(" ").map(letter => colorDict[letter.toUpperCase()] || letter.toUpperCase()).join(", ");
+      let guess = userGuess.split(" ").map(letter => colorDict[letter.toUpperCase()] || letter.toUpperCase());
       console.log(guess);
       resolve(guess);
     });
@@ -157,7 +157,7 @@ async function codeGuessST() { // Simplified Typing
 
 function checkGuessST(guess, correctCode) { // Simplified Typing
   // First checks if the color is the right color *and* in the right position, if not, checks if it's in the code at all.
-  console.log(guess)
+  console.log("checking guess", guess)
   for (let i = 0; i < 4; i++) {
     if (guess[i] == correctCode[i]) {
       console.log(`${guess[i]} is in the code and in the correct position ${i + 1}`);
